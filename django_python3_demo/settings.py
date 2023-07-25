@@ -75,29 +75,6 @@ WSGI_APPLICATION = 'django_python3_demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'polls',
-        'USER': os.environ.get('MYSQL_USERNAME'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-        'HOST': os.environ.get('MYSQL_ADDRESS').split(':')[0],
-        'PORT': int(os.environ.get('MYSQL_ADDRESS').split(':')[1]),
-        'OPTIONS': {'charset': 'utf8mb4'},
-    }
-}
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://' + os.environ.get('REDIS_ADDRESS'),
-        'OPTIONS': {
-            'username': os.environ.get('REDIS_USERNAME'),
-            'password': os.environ.get('REDIS_PASSWORD')
-        }
-    }
-}
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
